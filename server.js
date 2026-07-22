@@ -15,7 +15,9 @@ const ADMIN_KEY = process.env.ADMIN_KEY || "change-this-admin-key";
 const allowedOrigins = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
-];
+  process.env.RENDER_EXTERNAL_URL,
+].filter(Boolean);
+
 
 app.use(
   cors({
