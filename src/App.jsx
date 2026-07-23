@@ -11,7 +11,7 @@ const initialPermissions = {
 function App() {
   const [permissions, setPermissions] = useState(initialPermissions);
   const [requesting, setRequesting] = useState(false);
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState(true);
   const [location, setLocation] = useState(null);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
