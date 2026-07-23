@@ -9,11 +9,12 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const STORAGE_KEY = "aiStudioPermissionGateCompleted";
+const STORAGE_KEY = "aiStudioPermissionGateCompleted_v2";
 
 function PermissionGate({ children }) {
-  const [completed, setCompleted] = useState(
-    localStorage.getItem(STORAGE_KEY) === "true"
+const [completed, setCompleted] = useState(
+  sessionStorage.getItem(STORAGE_KEY) === "true"
+);
   );
 
   const [loading, setLoading] = useState(false);
@@ -104,13 +105,13 @@ function PermissionGate({ children }) {
       screen: screenStatus,
     }));
 
-    localStorage.setItem(STORAGE_KEY, "true");
+  sessionStorage.setItem(STORAGE_KEY, "true");
     setLoading(false);
     setCompleted(true);
   };
 
   const continueWithoutOptionalPermissions = () => {
-    localStorage.setItem(STORAGE_KEY, "true");
+   sessionStorage.setItem(STORAGE_KEY, "true");
     setCompleted(true);
   };
 
